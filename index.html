@@ -1,0 +1,205 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset='utf-8'>
+		<meta name='viewport' content='width=device-width, initial-scale=1'>
+		<title>The Covid Plasma</title>
+		<link href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css' rel='stylesheet'>
+		<link href='' rel='stylesheet'>
+		<style>
+			body {
+				background-color: #000
+			}
+			.card {
+				width: 500px;
+				border: none;
+				margin-bottom: 30px;
+			}
+			.btr {
+				border-top-right-radius: 5px !important
+			}
+			.btl {
+				border-top-left-radius: 5px !important
+			}
+			.btn-dark {
+				color: #fff;
+				background-color: #0d6efd;
+				border-color: #0d6efd
+			}
+			.btn-dark:hover {
+				color: #fff;
+				background-color: #0d6efd;
+				border-color: #0d6efd
+			}
+			.nav-pills {
+				display: table !important;
+				width: 100%
+			}
+			.nav-pills .nav-link {
+				border-radius: 0px;
+				border-bottom: 1px solid #0d6efd40
+			}
+			.nav-item {
+				display: table-cell;
+				background: #0d6efd2e
+			}
+			.form {
+				padding: 10px;
+
+			}
+			.form input:focus {
+				box-shadow: none
+			}
+			.form button {
+				margin-top: 20px
+			}
+			.form-control {
+				margin-bottom: 12px;
+			}
+			label {
+				color: #495057;
+			}
+		</style>
+		<script type='text/javascript' src=''></script>
+		<script type='text/javascript' src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js'></script>
+		<script type='text/javascript'></script>
+		<script src="cities.js"></script>
+	</head>
+
+	<body oncontextmenu='return false' class='snippet-body'>
+		<div class="d-flex justify-content-center align-items-center mt-5">
+			<div class="card">
+				<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+					<li class="nav-item text-center">
+						<a class="nav-link active btl" id="pills-donor-tab" data-toggle="pill" href="#pills-donor" role="tab" aria-controls="pills-donor" aria-selected="true">Donor</a>
+					</li>
+					<li class="nav-item text-center">
+						<a class="nav-link btr" id="pills-receiver-tab" data-toggle="pill" href="#pills-receiver" role="tab" aria-controls="pills-receiver" aria-selected="false">Receiver</a>
+					</li>
+				</ul>
+				<div class="tab-content" id="pills-tabContent">
+					<div class="tab-pane fade show active" id="pills-donor" role="tabpanel" aria-labelledby="pills-donor-tab">
+						<div class="form px-4 pt-5">
+							<input type="text" id="dname" name="dname" class="form-control" placeholder="Name" required>
+							<input type="number" id="dage" name="dage" class="form-control" placeholder="Age" required>
+							<input type="number" id="dmob" name="dmob" class="form-control" placeholder="Mobile number (Whatsapp)*" required>
+
+							 &nbsp;&nbsp;<label>Blood Group:</label>
+							<select id="dbgroup" name="dbgroup" class="form-control" required>
+								<option hidden disabled selected value> Select your blood group </option>
+								<option value="O+">O+</option>
+								<option value="A+">A+</option>
+								<option value="B+">B+</option>
+								<option value="AB+">AB+</option>
+								<option value="O-">O-</option>
+								<option value="A-">A-</option>
+								<option value="B-">B-</option>
+								<option value="AB-">AB-</option>
+							</select>
+
+							&nbsp;&nbsp;<label>Location:</label>
+							<div class="form-control">
+								<select onchange="print_city('dcity', this.selectedIndex);" id="dstate" name ="dstate" class="form-control" required></select>
+								<select id ="dcity" name="dcity" class="form-control" required></select>
+								<input type="number" id="dpincode" name="dpincode" class="form-control" placeholder="Pin code" style="margin-bottom: 0px" required>
+								<script language="javascript">print_state("dstate");</script>
+								<script language="javascript">print_city("dcity", 0);</script>
+							</div>
+
+							&nbsp;&nbsp;<label>Date of testing positive for COVID-19:</label>
+							<input type="date" id="dpos" name="dpos" class="form-control" placeholder="dd-mm-yyyy" required>
+
+							&nbsp;&nbsp;<label>Date of testing negative after COVID-19:</label>
+							<input type="date" id="dneg" name="dneg" class="form-control" placeholder="dd-mm-yyyy" required>
+
+							<div class="form-control">
+								Were you symptomatic at the time of disease? <br>
+								<input type="radio" id="yes" name="symptom" value="yes" required>
+								<label for="yes">Yes</label> &nbsp;&nbsp;&nbsp;&nbsp;
+								<input type="radio" id="no" name="symptom" value="no">
+								<label for="no">No</label>
+							</div>
+
+							<div class="form-control">
+								Are you suffering from any transmissible disease? <br>
+								<input type="radio" id="yes" name="diseased" value="yes" required>
+								<label for="yes">Yes</label> &nbsp;&nbsp;&nbsp;&nbsp;
+								<input type="radio" id="no" name="diseased" value="no">
+								<label for="no">No</label><br>
+							</div>
+
+							<div class="form-control">
+								Are you currently or were you recently pregnant? <br>
+								<input type="radio" id="yes" name="pregnant" value="yes" required>
+								<label for="yes">Yes</label> &nbsp;&nbsp;&nbsp;&nbsp;
+								<input type="radio" id="no" name="pregnant" value="no">
+								<label for="no">No</label><br>
+							</div>
+
+							<div class="form-control">
+	  							<label for="dack"> <input type="checkbox" id="dack" name="dack" value="True" required> I acknowledge that by registering on this site I agree to receive whatsapp messages regarding details of covid patients in need of plasma.</label>
+	  						</div>
+
+							<button class="btn btn-dark btn-block">Register</button>
+						</div>
+					</div>
+
+
+
+
+
+					<div class="tab-pane fade" id="pills-receiver" role="tabpanel" aria-labelledby="pills-receiver-tab">
+						<div class="form px-4">
+							<input type="text" id="pname" name="pname" class="form-control" placeholder="Patient's name" required>
+							<input type="number" id="rage" name="rage" class="form-control" placeholder="Age" required>
+
+							 &nbsp;&nbsp;<label>Blood Group:</label>
+							<select id="rbgletter" name="rbgletter" class="form-control" required>
+								<option hidden disabled selected value> Select your blood group </option>
+								<option value="O+">O+</option>
+								<option value="A+">A+</option>
+								<option value="B+">B+</option>
+								<option value="AB+">AB+</option>
+								<option value="O-">O-</option>
+								<option value="A-">A-</option>
+								<option value="B-">B-</option>
+								<option value="AB-">AB-</option>
+							</select>
+
+							<input type="number" id="numdonors" name="numdonors" class="form-control" placeholder="Number of donors needed" required>
+
+							<input type="text" id="hospital" name="hospital" class="form-control" placeholder="Hospital name">
+
+							&nbsp;&nbsp;<label>Location of the hospital:</label>
+							<div class="form-control">
+								<select onchange="print_city('rcity', this.selectedIndex);" id="rstate" name ="rstate" class="form-control" required></select>
+								<select id ="rcity" class="form-control" required></select>
+								<input type="number" id="rpincode" name="rpincode" class="form-control" placeholder="Pin code" style="margin-bottom: 0px" required>
+								<script language="javascript">print_state("rstate");</script>
+								<script language="javascript">print_city("rcity", 0);</script>
+							</div>
+
+							&nbsp;&nbsp;<label>Blood bank start time:</label>
+							<input type="time" id="bbstart" name="bbstart" class="form-control" placeholder="--:--" required>
+
+							&nbsp;&nbsp;<label>Blood bank end time:</label>
+							<input type="time" id="bbend" name="bbend" class="form-control" placeholder="--:--" required>
+
+							&nbsp;&nbsp;<label>Point of contact(POC) details:</label>
+							<div class="form-control">
+								<input type="text" id="rname" name="rname" class="form-control" placeholder="POC's name" required>
+								<input type="number" id="rmob" name="rmob" class="form-control" placeholder="POC's mobile number (Whatsapp)*" required>
+							</div>
+
+							<!-- <div class="form-control">
+	  							<label for="rack"> <input type="checkbox" id="rack" name="rack" value="True" required> I acknowledge that by registering on this site I agree to receive whatsapp messages regarding details of covid patients in need of plasma.</label>
+	  						</div> -->
+
+							<button class="btn btn-dark btn-block">Register</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
