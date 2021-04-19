@@ -47,8 +47,6 @@ function print_state(state_id){
 	for (var i=0; i<state_arr.length; i++) {
 		option_str.options[option_str.length] = new Option(state_arr[i],state_arr[i]);
 	}
-	console.log("js", option_str)
-	return option_str;
 }
 
 function print_city(city_id, city_index){
@@ -60,5 +58,4 @@ function print_city(city_id, city_index){
 	for (var i=0; i<city_arr.length; i++) {
 		option_str.options[option_str.length] = new Option(city_arr[i],city_arr[i]);
 	}
-	return option_str;
 }
